@@ -2,6 +2,12 @@ package main
 
 import "fmt"
 
+type Config struct {
+	Port    int
+	Dbug    bool
+	AppName string
+}
+
 func zeroValue() {
 	var age int
 	var name string
@@ -59,4 +65,13 @@ func main() {
 	user["farid"] = 33
 
 	fmt.Println(user)
+
+	var config Config
+	fmt.Printf("Config Befor set value: %+v\n", config)
+
+	config.Port = 80
+	config.Dbug = true
+	config.AppName = "Start Speak"
+
+	fmt.Printf("Config after set value: %+v\n", config)
 }
