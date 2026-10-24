@@ -75,4 +75,31 @@ func main() {
 
 	fmt.Println(*cPtr)
 
+	var mAge int = 44
+	var agePtr *int = &mAge
+
+	*agePtr = 32
+	fmt.Println(mAge)
+
+	z := 12
+	zPtr := &z
+
+	change(zPtr)
+
+	fmt.Println(z)
+	fmt.Println(*zPtr)
+
+	changev2(zPtr)
+	fmt.Println(z)
+	fmt.Println(*zPtr)
+
+}
+
+func change(ptr *int) {
+	value := 1000
+	ptr = &value
+}
+
+func changev2(ptr *int) {
+	*ptr = 1000
 }
