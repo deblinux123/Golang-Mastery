@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 func main() {
 	var user map[string]string
@@ -49,4 +52,32 @@ func main() {
 	}
 
 	delete(student, "reza")
+
+	product := map[string]any{
+		"name":   "phone",
+		"price":  332,
+		"region": "IR",
+	}
+
+	for key, value := range product {
+		fmt.Println(key, ":", value)
+	}
+
+	scores := map[string]int{
+		"Sara":  92,
+		"Farid": 95,
+		"Ali":   88,
+	}
+
+	keys := make([]string, 0, len(scores))
+
+	for key := range scores {
+		keys = append(keys, key)
+	}
+
+	sort.Strings(keys)
+
+	for _, key := range keys {
+		fmt.Println(key)
+	}
 }
