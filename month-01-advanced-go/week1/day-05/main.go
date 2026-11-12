@@ -5,6 +5,11 @@ import (
 	"sort"
 )
 
+type User struct {
+	Name string
+	Age  int
+}
+
 func main() {
 	var user map[string]string
 
@@ -80,4 +85,41 @@ func main() {
 	for _, key := range keys {
 		fmt.Println(key)
 	}
+
+	first := map[string]int{
+		"farid": 100,
+	}
+
+	second := first
+
+	second["farid"] = 100
+	second["ali"] = 80
+
+	fmt.Println(first)
+	fmt.Println(second)
+
+	newUser := map[int]User{
+		1: {
+			Name: "farid",
+			Age:  23,
+		},
+		2: {
+			Name: "alli",
+			Age:  43,
+		},
+	}
+
+	fmt.Println(newUser)
+	fmt.Println(newUser[1].Name)
+
+	users2 := map[int]*User{
+		1: {
+			Name: "Asma",
+			Age:  33,
+		},
+	}
+
+	users2[1].Age = 555
+
+	fmt.Println(users2[1].Age)
 }
