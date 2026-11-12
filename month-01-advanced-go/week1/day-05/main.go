@@ -38,4 +38,15 @@ func main() {
 
 	// todo: print the number of student
 	fmt.Println(len(student))
+
+	// look up the map
+	grade, exists := student["reza"]
+
+	if exists {
+		fmt.Println("Grade:", grade)
+	} else {
+		fmt.Println("Student Not Found.")
+	}
+
+	delete(student, "reza")
 }
