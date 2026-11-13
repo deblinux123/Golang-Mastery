@@ -15,6 +15,18 @@ type BankAccount struct {
 	Balance float64
 }
 
+type Greeter interface {
+	Greet()
+}
+
+type User struct {
+	Name string
+}
+
+func (u *User) Greet() {
+	fmt.Println("Hello", u.Name)
+}
+
 func (b *BankAccount) Display() string {
 	return fmt.Sprintf("Owner: %s\nBalance:%.2f\n", b.Owner, b.Balance)
 }
@@ -65,4 +77,12 @@ func main() {
 		log.Println("Withdraw successfully.")
 	}
 	fmt.Println("After withdraw:", account.GetBalance())
+
+	user := User{Name: "farid"}
+
+	var g Greeter
+
+	g = &user
+
+	g.Greet()
 }
